@@ -1,0 +1,196 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title> Neat things </title> 
+        <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap-rowlink.min.css" rel="stylesheet" media="screen">
+        <link href="../css/custom.css" rel="stylesheet" media="screen">
+        <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row-fluid">
+            <div class="span6">
+                <h1> Neat things </h1>
+            </div>
+            <div class="span6">
+                <img src="race.jpg" class="img-rounded" style="max-height: 200px">
+            </div>
+            </div>
+            <hr />
+            <table class="table table-hover table-condensed" data-provides="rowlink"> 
+                <tr> <td> <a href="#wiki" class="rowlink"> Wikipedia link graph, MapReduce, PageRank </a> </td> <td> 12-1-12 </td> </tr>
+                <tr> <td> <a href="#tsp" class="rowlink"> travelling salesman problem </a> </td> <td> 6-9-12 </td> </tr>
+                <tr> <td> <a href="#balls" class="rowlink"> balls and bins </a> </td> <td> 3-28-12 </td> </tr>
+                <tr> <td> <a href="#shred" class="rowlink"> instagram challenge: unshredder </a> </td> <td> 11-15-11 </td> </tr>
+                <tr> <td> <a href="#mobileAC" class="rowlink"> mobile air conditioner control</a> </td> <td> summer 2011 </td> </tr>
+                <tr> <td> <a href="#icm" class="rowlink"> independent chip model </a> </td> <td> 2004 </td> </tr>
+            </table> 
+            <hr />
+            
+            <a name="wiki"></a>
+            <h3> Wikipedia link graph, MapReduce, PageRank </h3>
+            <h5> 12-1-12 </h5>
+            <p> As an excuse to play with some Amazon Web Services credit
+            ($100) I got from a class, I decided to mess around with the <a
+                href="http://dumps.wikimedia.org/enwiki/latest/"> Wikipedia
+                link graph </a>. The main file expands to 20GB+ and is in an
+            inconvenient format, and so Amazon's Elastic MapReduce was a useful
+            tool to parse it in a reasonable amount of time and build the
+            graph.
+
+            <p> The files: 
+            <ul> 
+                <li> enwiki-latest-pagelinks.sql.gz -- Contains most of the
+                information needed to build the graph. It's a MySQL dump where
+                rows contain triples of the form (from page ID, namespace, to
+                page name). Annoyingly, the "to pages" are given with their
+                text name which needs to be converted to an ID.  The next file
+                includes the necessary info to do the mapping. We are only
+                concerned with the "Main" namespace; the others (e.g. Talk and
+                Help pages) should be discarded. </li>
+                <li> enwiki-latest-page.sql.gz -- Contains information for each
+                page, in particular both its text name and integer ID. </li>
+            </ul>
+
+            <p> I launched an EC2 instance, downloaded the files, unzipped them,
+            then pushed them onto S3. The pagelinks.sql file is so large that
+            this wasn't completely straightforward. I ended up using <a href="
+                https://github.com/boto/boto"> boto </a> to push it up in smaller
+            2GB chunks.
+
+            <p> With the graph built, it's a pretty staightforward task to
+            build the in and out degree distributions. For fun, I used EMR to
+            do this as well, though it's a simple enough task to run on single
+            machine. I should include some comments and graphs on the
+            distributions here. (UPDATE: I did this, see below)
+
+            <p> Next I tried for each page to compute the top ten most similar 
+            pages based on out-link structure. I failed to do this, and gave up
+            after exhausting my $100 budget. It's a tough task to parallelize, 
+            and similar to k-nearest neighbors in that each subtask needs to
+            know the whole graph. I've read of clever ways to combat this, e.g.
+            locality-based hashing, but didn't get around to implementing any.
+
+            <p> The next step is PageRank, a fairly straightforward linear
+            algebra problem. This can be parallelized easily (just matrix-vector
+            multiplication) but needs to chain together multiple MapReduce tasks.
+            I couldn't find a simple way to do this within the EMR framework,
+            though I bet there is a way to do it.
+
+            <p> The wikipedia graph is small enough, however, that it might fit
+            into memory on a single machine. I haven't gotten around to doing
+            this yet.
+
+            <h5 style="color:red"> UPDATE </h5>
+            <p> The wikipedia graph does indeed fit into memory, 2GB as a
+            sparse matrix in scipy. I implemented PageRank and played with it a
+            bit, nothing too exciting. I should put together a graph or table
+            or something. (UPDATE: I did this, see github link below)
+            <p> Also,  I am told that Pig is a good tool for doing high-level
+            mapreduce jobs and it can be used on AWS. I should look into that. 
+
+            <h5 style="color:red"> UPDATE 12-30-13 </h5>
+            <p> <a href="https://twitter.com/lukestanley">Luke Stanley</a> 
+            actually needed to use this for a real purpose. I helped him out;
+            see some results and discussion on 
+            <a href="https://github.com/sharnett/wiki_pagerank">github</a>. 
+            Includes some 
+            <a href="http://nbviewer.ipython.org/github/sharnett/wiki_pagerank/blob/master/tagalog%20inlink%20and%20outlink%20distributions.ipynb">graphs</a> 
+            on the inlink and outlink distributions for the Tagalog wikipedia.
+
+            <hr />
+            
+            <a name="tsp"></a>
+            <h3> Travelling Salesman Problem (TSP) </h3>
+            <h5> 6-9-12 </h5>
+            <div style="font-style:italic">
+                <p> Given a list of cities and their pairwise distances, the task is 
+                    to find the shortest possible route that visits each city exactly 
+                    once and returns to the origin city
+            </div>
+            <p> A colleague of mine had recently learned a simulated annealing approach
+                to approximately solving this which he bragged about. I scoffed, telling
+                him I could solve it exactly, and much faster. It took me about a year,
+                but I finally learned all the necessary pieces.
+            <p> <a href="http://www.tsp.gatech.edu/methods/dfj/index.html"> cutting-plane method </a>
+            <p> I used the cutting-plane method (described pretty well above) using some Columbia CS
+                dude's <a href="http://code.activestate.com/recipes/576907-minimum-cut-solver/">code</a>
+                to find the mincuts, and gurobi to solve the integer program. 50ish lines of python 
+                outside of those two subroutines, and blazingly fast for 20 cities, less than a tenth 
+                of a second typically.
+            <p> <a href="https://github.com/sharnett/tsp"> github </a>
+            <hr />
+
+            <a name="balls"></a>
+            <h3> Balls and bins </h3>
+            <h5> 3-28-12 </h5>
+            <p> My friend Chris posed this problem:
+            <div style="font-style:italic">
+                <p> Imagine an array of N cups.  High above the cups you drop M ping 
+                    pong balls, so that the probability of a ball entering any cup is 
+                    totally uniform.
+                <p> What is the expected number of occupied cups (or empty cups, 
+                    whatever)?  Assume each cup is big enough to hold all M balls 
+                    should they all fall in one.
+            <h5> Application: </h5>
+            <p> When I worked on a medical imaging device, we used these things called 
+                solid state photo multipliers.  The way it works is exactly analogous 
+                to dropping in M photons into N boxes and counting the non empty boxes.  
+                We always assumed that K non-empty boxes implied K incident photons 
+                (which is a solid approximation for M &lt;&lt; N), but I was always curious 
+                about how to account for saturation effects once M ~ N.
+            </div>
+            <p> My answer: 
+            <p> <img src="balls.png" alt="solution equation"/>
+            <p> <a href="balls.pdf"> solution</a> (pdf)
+            <h5 style="color:red"> UPDATE </h5>
+            <p> My solution is way too complicated. There is a much easier way
+            to go about it by using the linearity of expectation; that is, the
+            expected number of non-empty cups is simply the sum over all cups
+            of the probability that a particular cup is non-empty (since the
+            cups are independent). It also allows a simple answer to the
+            follow-up question: what is the limit as N goes to infinity of E[#
+            bins filled from N balls in N bins]/N ? Both the simpler solution
+            and the follow up question are left as an exercise for you.
+
+            <hr />
+
+            <a name="shred"></a>
+            <h3> Instagram Challenge: Unshredder </h3>
+            <h5> 11-15-11 </h5>
+            <p> Given an image randomly sliced into vertical strips, can you piece back
+                together the original?
+            <p> <a href="http://instagram-engineering.tumblr.com/post/12651721845/instagram-engineering-challenge-the-unshredder"> The challenge </a>
+            <p> <a href="https://github.com/sharnett/unshredder"> github </a>
+            <p> <img src="shred.png" alt="unshred a cat picture"/>
+            <hr />
+
+            <a name="mobileAC"></a>
+            <h3> Mobile air conditioner control </h3>
+            <h5> Summer 2011 </h5>
+            <p> Control your air conditioner via website. Arduino project #1
+            <p> <a href="http://sharnett.github.com/MobileAC/"> website </a>
+            <p> <a href="https://github.com/sharnett/MobileAC"> github</a> 
+            <p> <img src="mobileac.png" alt="screenshot of mobile AC web interface"/>
+            <hr />
+
+            <a name="icm"></a>
+            <h3> Independent Chip Model (ICM) </h3>
+            <h5> 2004 </h5>
+            <p> How valuable are the different stacks in a poker tournament with a
+                top-heavy payout structure? How does this influence strategy?
+            <p> <a href="http://www.internet-texas-poker.net/forum/sit-n-go-strategien-nl-t44-20.html"> 
+                twoplustwo magazine article</a> reposted on some German poker blog. 
+            I got paid $200 bucks to write this in college, made me feel pretty badass.
+            It's been linked around quite a bit and even cited in a super detailed
+            analysis of the value of a chip in a tournament, in Japanese. 
+            <p> <a href="http://archives2.twoplustwo.com/showthreaded.php?Cat=&Number=1122239&page=8&view=collapsed&sb=7&o=93&fpart=1"> Original post</a> on twoplustwo forums
+            <p> <a href="https://github.com/sharnett/icm"> github</a> 
+
+        </div>
+<script src="ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+    </body>
+</html>
