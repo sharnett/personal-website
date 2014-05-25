@@ -1,5 +1,6 @@
 body { 
-    background-image:url('/img/photo.jpg'); 
+/*    background-image:url('/img/photo.jpg'); */
+    background-color: #ABC;
     padding: 0px 40px 0px 40px;
 } 
 .container-fluid {
@@ -18,7 +19,8 @@ body {
 .leaddiv {
     background-color: white;
     box-shadow: 0 0 3px 3px #abc;
-    padding: 5px 5px 0px 10px;
+    padding: 15px 15px 5px 20px;
+    margin-bottom: 15px;
     border-radius: 8px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
