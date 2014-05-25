@@ -4,7 +4,7 @@ body {
     padding: 0px 40px 0px 40px;
 } 
 .container-fluid {
-    background-image:url('/img/cw.png'); 
+    background-image:url('../img/cw.png'); 
     max-width: 850px;                
     padding: 20px;
     margin: 10px auto;                 
