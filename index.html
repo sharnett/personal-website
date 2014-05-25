@@ -1,93 +1,84 @@
-
-<!-- saved from url=(0033)http://www.columbia.edu/~srh2144/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title> Sean Harnett </title> 
-        <style> 
-            <!--
-            body { background-image:url('cw.png'); }
-            img { max-height: 240px }
-            .header { min-height: 230px; }
-            .main { 
-                max-width: 650px; 
-                margin: 20px auto; 
-                padding: 30px; 
-                background-image:none; 
-                background-color:white; 
-                border-radius: 8px;
-                -moz-border-radius: 8px;
-                -webkit-border-radius: 8px;
-            }
-            --> 
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="css/custom.css" rel="stylesheet" media="screen">
+        <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
     </head>
 
     <body>
-        <div class="main">
-            <div class="header">
-                <img src="sean.jpg" align="right">
+        <div class="container-fluid">
+            <div class="hero-unit">
+                <img src="img/sean.jpg" class="pull-right img-rounded mainpic">
                 <h1> Sean Harnett </h1> 
-                <br>
+                <br> <br> 
                 <p> email: <a href="mailto:srh2144@columbia.edu">srh2144@columbia.edu</a> </p> 
-                <p> advisor: Professor <a href="http://www.columbia.edu/~dano/">Daniel Bienstock</a> </p> 
+                <p> office: 292A Engineering Terrace </p> 
+                <p> advisor: <a href="http://www.columbia.edu/~dano/">Daniel Bienstock</a> </p> 
                 <p> github: <a href="https://github.com/sharnett">sharnett</a></p>
             </div>
+            <div class="leaddiv">
+                <p class="lead"> I'm a fourth year applied math PhD student in the 
+                <a href="http://www.apam.columbia.edu/">APAM</a> department at Columbia. I'm researching 
+                computational methods for the diagnosis of vulnerabilities in electrical power grids. 
+                I do my work in Python, C++, Matlab, and Linux. </p>
+            </div>
 
-            <hr>
-            <p> I'm a fifth year applied math PhD student in the 
-            <a href="http://www.apam.columbia.edu/">APAM</a> department at Columbia. I'm researching 
-            computational methods for the diagnosis of vulnerabilities in electrical power grids. I'm
-            also a quantitative engineer at <a href="http://www.yodle.com/">Yodle</a>.</p> 
 
-            <hr> 
+            <div class="row-fluid">
+                <div class="span4">
             <h3> Education </h3> 
-            <ul> 
-                <li> Ph.D. candidate in Applied Mathematics, Columbia University, expected graduation 2015 
+            <ul class="unstyled"> 
+                <li> Ph.D. Applied Mathematics, Columbia University, expected 2013 
                 </li><li> M.A. Mathematics, UCLA, 2006
-                </li><li> B.S. Applied Mathematics with Specialization in Computing, UCLA, 2006 (joint with masters)
+                </li><li> B.S. Applied Mathematics with Specialization in Computing, UCLA, 2006 
                 </li>
             </ul> 
-
-            <hr> 
-            <h3> Skills </h3> 
-            <p> I do my work in Python, Julia, C/C++, R, MATLAB, Mathematica </p>
-            <p> I do everything I can in an <a href="http://ipython.org/notebook">IPython notebook</a>. I like vim,
-                pandas, ggplot2, scikit-learn. </p>
-
-            <hr> 
-            <h3> Class Projects </h3> 
-            <p> A couple interesting class projects I've done: </p>
-            <ul>
-                <li> <a href="http://www.columbia.edu/~srh2144/Netflix_ALS.pdf">The Netflix Prize: Alternating Least Squares in MPI</a>
-                </li><li> <a href="http://www.columbia.edu/~srh2144/Harnett_Jenkinson_PDEProject.pdf">Crime PDE</a>
-                </li><li> <a href="http://www.columbia.edu/~srh2144/optimal_power_grid_attack.pdf">Optimal Power Grid Attack</a>
-                </li><li> <a href="http://www.columbia.edu/~srh2144/netflix2.pdf">Stochastic gradient descent versus non-linear conjugate gradient for the Netflix Prize</a>
-                </li><li> <a href="naive.html">Naive Bayes for multiclass text classification</a>
-                </li>
+            <h3> Talks </h3> 
+            <ul class="unstyled">
+            <small>
+                <li> <a href="talk.pdf">Robust Optimal Power Flow with Uncertain
+Renewables</a> </li>
+                <li> N-k problem with AC power flow </li>
+            </small>
             </ul>
+                </div>
 
-            <hr> 
-            <h3> Side Projects </h3> 
-            <p><a href="http://www.columbia.edu/~srh2144/neatthings/"> Side projects </a></p>
-            <ul> 
-                <li> Wikipedia link graph, MapReduce, PageRank 12-1-12 </li>
-                <li> travelling salesman 6-9-12 </li>
-                <li> balls and bins 3-28-12 </li>
-                <li> instagram challenge: unshredder 11-15-11 </li>
-                <li> mobile air conditioner control, summer 2011</li>
-                <li> independent chip model, 2004 </li>
+                <div class="span4">
+                    <h3> <a class="btn btn-large btn-inverse" href="class/index.html">Class Projects </h3></a> 
+            <p> A few interesting class projects: </p>
+            <ul class="unstyled">
+            <small>
+                <li> Netflix Prize: Stochastic gradient descent, non-linear conjugate gradient, mapreduce </li>
+                <li> Categorizing New York Times articles </li>
+                <li> Optimal Power Grid Attack </li>
+                <li> Crime hot spots with PDEs </li>
+                <li> Netflix Prize: Alternating Least Squares in MPI</a> </li>
+            </small>
+            </ul>
+        </div>
+
+                <div class="span4">
+                    <h3><a class="btn btn-large btn-inverse" href="neatthings/index.html">  Side Projects </a></h3>
+            <p> Some neat stuff I've done just for fun: </p>
+            <ul class="unstyled"> 
+            <small>
+                <li> Wikipedia link graph, MapReduce, PageRank </li>
+                <li> Traveling salesman problem </li>
+                <li> Balls and bins, fun probability </li>
+                <li> Instagram challenge: unshred a photo </li>
+                <li> Control air conditioner via website </li>
+                <li> Modeling poker tournament payout structure </li>
+            </small>
             </ul> 
-
-            <hr> 
-            <h3> Talk </h3> 
-            <ul>
-                <li> <a href="http://www.columbia.edu/~srh2144/talk.pdf">Smart Grid Talk</a> </li>
-            </ul>
-
-            <hr/>
-            <p> sneak peek of redesign: <a href="http://seanwebsite.s3-website-us-east-1.amazonaws.com/"> new website </a> 
+                </div>
 
         </div>
 
     
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 </body></html>
