@@ -126,13 +126,13 @@
             </div>
             <p> A colleague of mine had recently learned a simulated annealing approach
                 to approximately solving this which he bragged about. I scoffed, telling
-                him I could solve it exactly, and much faster. It took me about a year,
-                but I finally learned all the necessary pieces.
+                him I could solve it exactly, and much faster. I was wrong at first, but
+                after a year I did learn all the necessary pieces.
             <p> <a href="http://www.tsp.gatech.edu/methods/dfj/index.html"> cutting-plane method </a>
-            <p> I used the cutting-plane method (described pretty well above) using some Columbia CS
-                dude's <a href="http://code.activestate.com/recipes/576907-minimum-cut-solver/">code</a>
+            <p> I used the cutting-plane method (described pretty well above) using a Columbia CS
+                student's <a href="http://code.activestate.com/recipes/576907-minimum-cut-solver/">code</a>
                 to find the mincuts, and gurobi to solve the integer program. 50ish lines of python 
-                outside of those two subroutines, and blazingly fast for 20 cities, less than a tenth 
+                outside of those two subroutines, and really fast for 20 cities, less than a tenth 
                 of a second typically.
             <p> <a href="https://github.com/sharnett/tsp"> github </a>
             <hr />
@@ -167,7 +167,8 @@
             cups are independent). It also allows a simple answer to the
             follow-up question: what is the limit as N goes to infinity of E[#
             bins filled from N balls in N bins]/N ? Both the simpler solution
-            and the follow up question are left as an exercise for you.
+            and the follow up question are left as an exercise for you. (It really
+            is pretty straightforward and satisfying, try it.)
 
             <hr />
 
@@ -197,7 +198,7 @@
                 top-heavy payout structure? How does this influence strategy?
             <p> <a href="http://webcache.googleusercontent.com/search?q=cache:tH6eA5_TUXQJ:www.internet-texas-poker.net/forum/sit-n-go-strategien-nl-t44-20.html+&cd=5&hl=en&ct=clnk&gl=us"> 
                 twoplustwo magazine article</a> reposted on some German poker blog. 
-            I got paid $200 bucks to write this in college, made me feel pretty badass.
+            I got paid $200 to write this in college, which made me feel pretty cool.
             It's been linked around quite a bit and even cited in a super detailed
             analysis of the value of a chip in a tournament, <a href="http://www12.plala.or.jp/doubledown/poker/icm.htm">in Japanese</a>.
             <p> <a href="http://archives2.twoplustwo.com/showthreaded.php?Cat=&Number=1122239&page=8&view=collapsed&sb=7&o=93&fpart=1"> Original post</a> on twoplustwo forums
