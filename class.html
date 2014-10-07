@@ -1,26 +1,39 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title> Class projects </title> 
-        <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="../css/custom.css" rel="stylesheet" media="screen">
-        <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title> Sean Harnett </title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/pure-min.css" rel="stylesheet" media="screen">
+        <link href="css/custom.css" rel="stylesheet" media="screen">
     </head>
 
     <body>
-        <div class="container-fluid">
-            <h1> Class projects </h1>
+        <h1> Sean Harnett </h1> 
+        <div class="pure-menu pure-menu-open pure-menu-horizontal">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="fun.html">Fun Projects</a></li>
+                <li class="pure-menu-selected"><a href="class.html">Class Projects</a></li>
+                <li><a href="vitae.html">Vitae</a></li>
+            </ul>
+        </div>
+
+        <hr><br>
+
+        <div class="pure-g">
+            <div class="pure-u-1">
+            <p> Some class projects that were particularly interesting. </p>
             <hr />
-                <h4> Stochastic gradient descent versus non-linear conjugate gradient for the Netflix Prize </h4>
-                <h6> 5-10-2012 </h6>
+                <h3> Stochastic gradient descent versus non-linear conjugate gradient for the Netflix Prize </h3>
+                <h5> 5-10-2012 </h5>
                 <p> I compare two common techniques to compute matrix
                 factorizations for recommender systems, specifically using the
                 Netflix prize data set. Accuracy, run-time, and scalability are
                 discussed for stochastic gradient descent and non-linear
-                conjugate gradient. <a href="netflix2.pdf"> pdf</a>
+                conjugate gradient. <a href="class/netflix2.pdf"> pdf</a>
                 </p>
-                <h4> Naive Bayes for multiclass text classification </h4>
-                <h6> 3-26-2012 </h6>
+                <h3> Naive Bayes for multiclass text classification </h3>
+                <h5> 3-26-2012 </h5>
                 <p> 
                 This was a part of a homework assignment from Jake Hofman's 
                 <a href="http://jakehofman.com/ddm/"> Data-driven Modeling course</a>. 
@@ -28,24 +41,24 @@
                 section to which the article belongs. First step was registering for the NYT
                 developer API and using it to get articles. The classifier was able to produce
                 greater than 90% accuracy on a withheld test data set.
-                <a href="homework_02.pdf"> The assignment. </a>
-                <a href="sean_harnett_hw2.pdf"> My answer. </a>
+                <a href="class/homework_02.pdf"> The assignment</a>.
+                <a href="class/sean_harnett_hw2.pdf"> My answer</a>.
                 <p style="color:red">TODO: code on github
                 </p>
-                <h4> Optimal Power Grid Attack </h4>
-                <h6> 5-11-2011 </h6>
+                <h3> Optimal Power Grid Attack </h3>
+                <h5> 5-11-2011 </h5>
                 <p>I study a continuous formulation of the so-called N-k problem: given a power grid,
                 find a small set of lines whose failure will cause maximum damage. Instead of removing lines
                 from the grid, I consider increasing their impedance continuously, and attempt to maximize
                 the resulting disruption to stable voltages. For all test cases, I show that a fast and 
                 simple first-order optimization method finds the same set of lines as more sophisticated
-                techniques. <a href="optimal_power_grid_attack.pdf">pdf</a> </p>
-                <h4> Crime PDE </h4>
-                <h6> 12-17-2010 </h6>
+                techniques. <a href="class/optimal_power_grid_attack.pdf">pdf</a> </p>
+                <h3> Crime PDE </h3>
+                <h5> 12-17-2010 </h5>
                 <p>The evolution in space and time of crime risk and criminal density is modeled by a coupled
                 system of partial differential equations, and solved with a semi-implicit method using finite 
                 differences. Under appropriate conditions, isolated stationary hot spots of high criminal activity
-                form. <a href="Harnett_Jenkinson_PDEProject.pdf"> pdf </a></p>
+                form. <a href="class/Harnett_Jenkinson_PDEProject.pdf"> pdf </a></p>
                 <p style="color:red">UPDATE 12-19-2010: I did more stuff </p>
                 <p> I was playing with this more over the weekend and
                 implemented the spectral methods we said we'd try next. They
@@ -55,24 +68,25 @@
                 images of the different sized hot spots and the new code, which
                 fits on a single screen.
                 <p>
-                <img src="eta01.png" style="height:300px" />
-                <img src="eta04.png" style="height:300px" />
+                <img src="class/eta01.png" style="height:300px" />
+                <img src="class/eta04.png" style="height:300px" />
                 <p> We didn't mention this in our paper, but when we coded it
                 up, we used the notation from the other Short paper which we
                 didn't reference.  It's equivalent but looks a little different
                 in a couple spots.
-                <p> Here are animations. I think the weird "shimmying" effect
-                on the previous one was from taking too large a time step.
-                <p><a href="http://dl.dropbox.com/u/6243473/eta01.avi"> small hotspots </a>
-                <p><a href="http://dl.dropbox.com/u/6243473/eta04.avi"> big hotspots </a>
-                <p> <a href="semiimpcrime.m">code</a> (matlab)
-                <h4> The Netflix Prize: Alternating Least Squares in MPI</a> </h4>
-                <h6> 3-5-2010 </h6>
+                <p> Here are animations:</p>
+                <p>
+                    <iframe width="420" height="315" src="//www.youtube.com/embed/TPLfZsOdsvs" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="420" height="315" src="//www.youtube.com/embed/epB-_iCj66M" frameborder="0" allowfullscreen></iframe>
+                </p>
+                <p> <a href="class/semiimpcrime.m">code</a> (matlab)
+                <h3> The Netflix Prize: Alternating Least Squares in MPI</a> </h3>
+                <h5> 3-5-2010 </h5>
                 <p> I solve the netflix problem on a distributed memory machine using MPI and
-                alternating least squares. <a href="Netflix_ALS.pdf"> pdf</a> </p>
+                alternating least squares. <a href="class/Netflix_ALS.pdf"> pdf</a> </p>
 
-        </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+                </div>
+            </div>
+
     </body>
 </html>

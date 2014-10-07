@@ -1,36 +1,51 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title> Neat things </title> 
-        <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="../css/bootstrap-rowlink.min.css" rel="stylesheet" media="screen">
-        <link href="../css/custom.css" rel="stylesheet" media="screen">
-        <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <title> Sean Harnett </title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/pure-min.css" rel="stylesheet" media="screen">
+        <link href="css/custom.css" rel="stylesheet" media="screen">
     </head>
 
     <body>
-        <div class="container-fluid">
-            <div class="row-fluid">
-            <div class="span6">
-                <h1> Neat things </h1>
-            </div>
-            <div class="span6">
-                <img src="race.jpg" class="img-rounded" style="max-height: 200px">
-            </div>
-            </div>
-            <hr />
-            <table class="table table-hover table-condensed" data-provides="rowlink"> 
-                <tr> <td> <a href="#AB" class="rowlink"> Fancy Bayesian AB testing </a> </td> <td> 6-14-14 </td> </tr>
-                <tr> <td> <a href="#ufo" class="rowlink"> Heatmap of UFO sightings </a> </td> <td> 5-25-14 </td> </tr>
-                <tr> <td> <a href="#wiki" class="rowlink"> Wikipedia link graph, MapReduce, PageRank </a> </td> <td> 12-1-12 </td> </tr>
-                <tr> <td> <a href="#tsp" class="rowlink"> travelling salesman problem </a> </td> <td> 6-9-12 </td> </tr>
-                <tr> <td> <a href="#balls" class="rowlink"> balls and bins </a> </td> <td> 3-28-12 </td> </tr>
-                <tr> <td> <a href="#shred" class="rowlink"> instagram challenge: unshredder </a> </td> <td> 11-15-11 </td> </tr>
-                <tr> <td> <a href="#mobileAC" class="rowlink"> mobile air conditioner control</a> </td> <td> summer 2011 </td> </tr>
-                <tr> <td> <a href="#icm" class="rowlink"> independent chip model </a> </td> <td> 2004 </td> </tr>
-            </table> 
-            <hr />
+        <h1> Sean Harnett </h1> 
+        <div class="pure-menu pure-menu-open pure-menu-horizontal">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="pure-menu-selected"><a href="fun.html">Fun Projects</a></li>
+                <li><a href="class.html">Class Projects</a></li>
+                <li><a href="vitae.html">Vitae</a></li>
+            </ul>
+        </div>
 
+        <hr><br>
+
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <p> Some projects just for fun.</p>
+                <table class="pure-table pure-table-horizontal"> 
+                    <tr> <td> <a href="#AB" class="rowlink"> Fancy Bayesian AB testing </a> </td> <td> 6-14-14 </td> </tr>
+                    <tr> <td> <a href="#ufo" class="rowlink"> Heatmap of UFO sightings </a> </td> <td> 5-25-14 </td> </tr>
+                    <tr> <td> <a href="#wiki" class="rowlink"> Wikipedia link graph, MapReduce, PageRank </a> </td> <td> 12-1-12 </td> </tr>
+                    <tr> <td> <a href="#tsp" class="rowlink"> travelling salesman problem </a> </td> <td> 6-9-12 </td> </tr>
+                    <tr> <td> <a href="#balls" class="rowlink"> balls and bins </a> </td> <td> 3-28-12 </td> </tr>
+                    <tr> <td> <a href="#shred" class="rowlink"> instagram challenge: unshredder </a> </td> <td> 11-15-11 </td> </tr>
+                    <tr> <td> <a href="#mobileAC" class="rowlink"> mobile air conditioner control</a> </td> <td> summer 2011 </td> </tr>
+                    <tr> <td> <a href="#icm" class="rowlink"> independent chip model </a> </td> <td> 2004 </td> </tr>
+                </table> 
+            </div>
+            <div class="pure-u-1-6">
+            </div>
+            <div class="pure-u-1-3">
+                <br> <br> <br>
+                <img src="fun/race.jpg" class="img-rounded" style="max-height: 300px">
+            </div>
+        </div>
+
+        <br> <hr>
+
+        <div class="pure-g">
+            <div class="pure-u-1">
             <a name="AB"></a>
             <h3> Fancy Bayesian AB testing </h3>
             <h5> 6-14-14 </h5>
@@ -45,11 +60,11 @@
             <h5> 5-25-14 </h5>
             <p> There's a lot of stuff for this one, read the <a href="http://sharnett.github.io/ufo-heatmap/ufo-heatmap-part1.html"> full article. </a> 
             <p> Going from this </p>
-            <img src='../img/ufo_map_annotated1.png' width='50%' height='50%'>
+            <img src='img/ufo_map_annotated1.png' style="max-height: 400px">
             <p> which looks a lot like this </p>
-            <img src='../img/heatmap_xkcd.png'>
+            <img src='img/heatmap_xkcd.png' style="max-height: 400px">
             <p> and doing the work to get to this </p>
-            <img src='../img/ufo_sightings_normalized_smooth.png' width='75%' height='75%'>
+            <img src='img/ufo_sightings_normalized_smooth.png' style="max-height: 400px">
 
             <hr>
 
@@ -59,7 +74,7 @@
             <p> As an excuse to play with some Amazon Web Services credit
             ($100) I got from a class, I decided to mess around with the <a
                 href="http://dumps.wikimedia.org/enwiki/latest/"> Wikipedia
-                link graph </a>. The main file expands to 20GB+ and is in an
+                link graph</a>. The main file expands to 20GB+ and is in an
             inconvenient format, and so Amazon's Elastic MapReduce was a useful
             tool to parse it in a reasonable amount of time and build the
             graph.
@@ -81,7 +96,7 @@
             <p> I launched an EC2 instance, downloaded the files, unzipped them,
             then pushed them onto S3. The pagelinks.sql file is so large that
             this wasn't completely straightforward. I ended up using <a href="
-                https://github.com/boto/boto"> boto </a> to push it up in smaller
+                https://github.com/boto/boto">boto</a> to push it up in smaller
             2GB chunks.
 
             <p> With the graph built, it's a pretty staightforward task to
@@ -167,8 +182,8 @@
                 about how to account for saturation effects once M ~ N.
             </div>
             <p> My answer: 
-            <p> <img src="balls.png" alt="solution equation"/>
-            <p> <a href="balls.pdf"> solution</a> (pdf)
+            <p> <img src="fun/balls.png" alt="solution equation"/>
+            <p> <a href="fun/balls.pdf"> solution</a> (pdf)
             <h5 style="color:red"> UPDATE </h5>
             <p> My solution is way too complicated. There is a much easier way
             to go about it by using the linearity of expectation; that is, the
@@ -189,7 +204,7 @@
                 together the original?
             <p> <a href="http://instagram-engineering.tumblr.com/post/12651721845/instagram-engineering-challenge-the-unshredder"> The challenge </a>
             <p> <a href="https://github.com/sharnett/unshredder"> github </a>
-            <p> <img src="shred.png" alt="unshred a cat picture"/>
+            <p> <img src="fun/shred.png" alt="unshred a cat picture"/>
             <hr />
 
             <a name="mobileAC"></a>
@@ -198,7 +213,7 @@
             <p> Control your air conditioner via website. Arduino project #1
             <p> <a href="http://sharnett.github.com/MobileAC/"> website </a>
             <p> <a href="https://github.com/sharnett/MobileAC"> github</a> 
-            <p> <img src="mobileac.png" alt="screenshot of mobile AC web interface"/>
+            <p> <img src="fun/mobileac.png" alt="screenshot of mobile AC web interface"/>
             <hr />
 
             <a name="icm"></a>
@@ -215,7 +230,7 @@
             <p> <a href="https://github.com/sharnett/icm"> github</a> 
 
         </div>
-<script src="ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+        </div>
+
     </body>
 </html>

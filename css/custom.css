@@ -1,35 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+
 body { 
-/*    background-image:url('/img/photo.jpg'); */
-    background-color: #ABC;
     padding: 0px 40px 0px 40px;
-} 
-.container-fluid {
-    background-image:url('../img/cw.png'); 
-    max-width: 850px;                
-    padding: 20px;
+    max-width: 1000px;                
     margin: 10px auto;                 
-    border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
+    font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#444;
+    font-weight:300;
 }
-.hero-unit {
-    background-color: white;
-    box-shadow: 0 0 3px 3px #abc;
-}
-.leaddiv {
-    background-color: white;
-    box-shadow: 0 0 3px 3px #abc;
-    padding: 15px 15px 5px 20px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-}                
-.mainpic { max-height: 290px; }
-p, div {
-    font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
-}
+.mainpic { max-height: 300px; }
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Droid Serif', Georgia, Times, serif;
-    text-shadow: 2px 2px 2px #ccc;
+    color:#222;
+}
+p { line-height: 150%; }
+ul.nostyle {
+    list-style-type: none;
+    line-height: 250%;
+}
+.pure-menu-selected {
+    text-decoration: underline;
 }
