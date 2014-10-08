@@ -13,9 +13,9 @@ h1, h2, h3, h4, h5, h6 {
     color:#222;
 }
 p { line-height: 150%; }
-ul.nostyle {
-    list-style-type: none;
-    line-height: 250%;
+li { margin-bottom: .8em; }
+ul.papers {
+    font-size:90%;
 }
 .pure-menu-selected {
     text-decoration: underline;
