@@ -2,14 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
     <title>Swonder</title>
     <link href="bootstrap.min.css" rel="stylesheet">
-    <script src="jquery-2.2.3.min.js"> </script>
-    <script src="bootstrap.min.js"> </script>
     <style>
-      .popover {
-        max-width: 100%;
-      }
+        p {
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+        @media (min-width: 38em) {
+          html {
+            font-size: 20px;
+          }
+        }
+        .popover {
+          max-width: 100%;
+        }
     </style>
   </head>
   
@@ -839,6 +848,8 @@ The purpose of this guide is to explore some of the strategies for 7 Wonders tha
 <h3></h3>
     </div>
     
+    <script src="jquery-2.2.3.min.js"> </script>
+    <script src="bootstrap.min.js"> </script>
     <script type="text/javascript">
       $('[data-toggle="popover"]').popover({ trigger: 'hover', placement: 'bottom', html: true});
     </script>
